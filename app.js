@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var http = require('http');
-var port = 3000;
 
 var app = express();
 
