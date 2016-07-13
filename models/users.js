@@ -1,7 +1,8 @@
-/**
- * Created by amori on 04/07/2016.
- */
+var autenticate = function (email, password) {
+    if(email == "admin@admin" && password == "admin") return "sucesso";
+    return "fracasso";
+};
 
-var express = require('express');
-
-
+module.exports = {
+  autenticate: autenticate
+};

@@ -15,7 +15,6 @@ var routes = require('./controllers/index');
 var users = require('./controllers/users');
 var signup = require('./controllers/signup');
 
-
 // connection data
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
@@ -26,6 +25,14 @@ var connection = mysql.createConnection({
 
 // establish connection to mysql database
 connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+    if (err) throw err;
+    console.log('The solution is: ', rows[0].solution);
+});
+
+connection.end();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
