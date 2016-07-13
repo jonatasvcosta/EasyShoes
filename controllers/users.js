@@ -15,4 +15,4 @@ router.post('/signin', function(req, res, next) {
     var email = req.body.email, password = req.body.password;
     res.send(user_model.autenticate(email, password));
 });
-module.exports = router;
+module.exports = router;    
