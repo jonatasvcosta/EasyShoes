@@ -9,8 +9,4 @@ router.get('/login', function(req, res) {
     res.render('index')
 });
 
-router.post('/criar_conta', function () {
-     
-});
-
 module.exports = router;
