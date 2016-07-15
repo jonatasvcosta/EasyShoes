@@ -25,9 +25,14 @@ User.prototype.autenticate = function () {
 
 User.prototype.create = function (){
     var connection = connection_model.connect();
-    var query = 'insert into usuario (tipo_usuario, nome_completo, cpf, email, senha, endereco, data_hora_criacao) values("'+this.type+'"+","+"'+this.name+'"+","+"'+this.cpf+'"+","+"'+this.email+'"+","+"'+this.password+'"+","+"'+this.addresses+'"+", now());"';
+    multiple_adresses = this.addresses.split(";");
+    var json_adress = new Object();
+    json_adress.adress_1 = multiple_adresses[0];
+    json_adress.adress_2 = multiple_adresses[1];
+    json_adress.adress_3 = multiple_adresses[2];
+
+    var query = "insert into usuario (tipo_usuario, nome_completo, cpf, email, senha, endereco, data_hora_criacao) values('"+this.type+"','"+this.name+"',"+this.cpf+", '"+this.email+"', '"+this.password+"','"+JSON.stringify(json_adress)+"', now());";
     connection.query(query, function(err, rows, fields){
-        console.log('$$$$$$$$$$$$$$$$');
         console.log(query);
         console.log('****************');
         console.log(fields);
@@ -36,4 +41,4 @@ User.prototype.create = function (){
     });
 }
 
-module.exports = User;;
+module.exports = User;
