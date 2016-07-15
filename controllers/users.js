@@ -27,4 +27,15 @@ router.post('/signin', function(req, res, next) {
     session.id_usuario = (status_session != null) ? status_session : null;
     res.redirect('/users');
 });
-module.exports = router;    
+
+router.get('/signup', function(req, res, next) {
+    res.render('signup');
+});
+
+router.post('/create_user', function(req, res, next) {
+    var name = req.body.name, cpf = req.body.cpf, rg = req.body.rg, password = req.body.password1,
+        confirm_password = req.body.password2, email = req.body.email, adress = req.body.adress,
+        adress2 = req.body.adress2, adress3 = req.body.adress3;
+        res.send(user_model.create_user('supervisor',name, cpf, rg, password, email, adress+";"+adress2+";"+adress3));
+});
+module.exports = router;
