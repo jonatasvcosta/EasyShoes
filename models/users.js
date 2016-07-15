@@ -6,6 +6,13 @@ var autenticate = function (email, password) {
     return 200;
 };
 
+var create_user = function (type, name, cpf, rg, password, email, adress) {
+    var user = new User('',type, name,cpf,email, password, adress);
+    user.create();
+    return 200;
+};
+
 module.exports = {
-    autenticate: autenticate
+    autenticate: autenticate,
+    create_user: create_user
 };
