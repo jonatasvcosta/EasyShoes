@@ -1,5 +1,5 @@
 // connection module
-var mysql      = require('mysql');
+var mysql = require('mysql');
 
 /* returns a MySQL database connection */
 var connect = function () {

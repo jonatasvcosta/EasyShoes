@@ -2,8 +2,7 @@ var User = require("../classes/User");
 
 var autenticate = function (email, password) {
     var user = new User('','','', '', email, password, '');
-    user.autenticate();
-    return 200;
+    return user.autenticate();
 };
 
 module.exports = {

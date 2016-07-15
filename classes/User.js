@@ -14,13 +14,18 @@ User.prototype.autenticate = function () {
     var connection = connection_model.connect();
     var query = 'select id_usuario, tipo_usuario, nome_completo, cpf, email, senha, endereco from usuario where email="'+this.email+'" and senha ="'+this.password+'"'
     connection.query(query, function(err, rows, fields){
-        console.log('$$$$$$$$$$$$$$$$');
-        console.log(query);
-        console.log('****************');
-        console.log(fields);
+        if(err){
+            console.log(err);
+            throw err;
+        }
+        /* TODO: tirar essas linhas quando estiver tudo ok na conexão */
         console.log('################');
-        console.log(rows);
+        if(rows[0].id_usuario !== 'undefined' && rows[0].id_usuario) {
+            console.log(rows[0].id_usuario);
+            return rows[0].id_usuario;
+        }
+        return null;
     });
 };
 
-module.exports = User;;
+module.exports = User;
