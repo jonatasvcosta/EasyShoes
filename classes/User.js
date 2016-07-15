@@ -25,7 +25,7 @@ User.prototype.autenticate = function () {
 
 User.prototype.create = function (){
     var connection = connection_model.connect();
-    var query = "insert into usuario (tipo_usuario, nome_completo, cpf, email, senha, endereco, data_hora_criacao) values('supervisor','"+this.name+"', 4, 'lucas.amorim.silva.usp@gmail.com', 'uchihasasuke', '{\"casa\":\"Av. Frei Inácio\"}', now());";
+    var query = 'insert into usuario (tipo_usuario, nome_completo, cpf, email, senha, endereco, data_hora_criacao) values("'+this.type+'"+","+"'+this.name+'"+","+"'+this.cpf+'"+","+"'+this.email+'"+","+"'+this.password+'"+","+"'+this.addresses+'"+", now());"';
     connection.query(query, function(err, rows, fields){
         console.log('$$$$$$$$$$$$$$$$');
         console.log(query);

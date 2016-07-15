@@ -23,6 +23,6 @@ router.get('/signup', function(req, res, next) {
 router.post('/create_user', function(req, res, next) {
     var name = req.body.name, cpf = req.body.cpf, rg = req.body.rg, password = req.body.password1,
         confirm_password = req.body.password2, email = req.body.email, adress = req.body.adress;
-    res.send(user_model.create_user('usuario', name, cpf, rg, password, email, adress));
+    res.send(user_model.create_user(name, cpf, rg, password, email, adress));
 });
 module.exports = router;
